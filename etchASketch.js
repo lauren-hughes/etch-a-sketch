@@ -1,4 +1,4 @@
-const container = document.querySelector("#container");
+const sketchPad = document.querySelector(".sketch-pad");
 
 // Creates rows
 for (let i = 0; i < 16; i++) {
@@ -12,7 +12,7 @@ for (let i = 0; i < 16; i++) {
         rowDiv.appendChild(squareDiv);
     }
 
-    container.appendChild(rowDiv);
+    sketchPad.appendChild(rowDiv);
 }
 
 const squares = document.querySelectorAll(".square");
