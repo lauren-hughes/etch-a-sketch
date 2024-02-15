@@ -1,0 +1,15 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.square {
+    aspect-ratio: 1 / 1;
+    flex: 1;
+}
