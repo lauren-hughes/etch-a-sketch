@@ -1,5 +1,8 @@
-const changeGridButton = document.querySelector("button");
+const changeGridButton = document.querySelector(".changeGrid");
 changeGridButton.addEventListener("click", changeGrid);
+
+const eraseButton = document.querySelector(".erase");
+eraseButton.addEventListener("click", erase);
 
 createGrid(16);
 
@@ -32,13 +35,12 @@ function changeColour(event) {
     // Background colour should only be changed if it hasn't been changed before
     // There is a small chance that the random background colour is white, so can't just check the background colour
     if (square.classList.contains("filled")) {
-        console.log("filled");
+        return;
     }
-    else {
-        // Changes square background color to a random colour
-        square.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-        square.classList.add("filled");
-    }
+
+    // Changes square background color to a random colour
+    square.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    square.classList.add("filled");
 }
 
 function changeGrid() {
@@ -63,4 +65,12 @@ function changeGrid() {
 function removeGrid() {
     const rows = document.querySelectorAll(".row");
     rows.forEach(row => row.remove());
+}
+
+function erase() {
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+        square.classList.remove("filled");
+    });
 }
