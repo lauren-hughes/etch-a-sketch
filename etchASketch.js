@@ -1,20 +1,51 @@
-const sketchPad = document.querySelector(".sketch-pad");
+const changeGridButton = document.querySelector("button");
+changeGridButton.addEventListener("click", changeGrid);
 
-// Creates rows
-for (let i = 0; i < 16; i++) {
-    let rowDiv = document.createElement("div");
-    rowDiv.classList.add("row");
+createGrid(16);
+
+function createGrid(n) {
+    const sketchPad = document.querySelector(".sketch-pad");
+
+    // Creates rows
+    for (let i = 0; i < n; i++) {
+        let rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");
 
     // Creates divisions within each row
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < n; j++) {
         let squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
         rowDiv.appendChild(squareDiv);
     }
 
-    sketchPad.appendChild(rowDiv);
+        sketchPad.appendChild(rowDiv);
+    }
+
+    const squares = document.querySelectorAll(".square");
+    // When each square is hovered over, the class filled is added to it, which changes the background color to black
+    squares.forEach(square => square.addEventListener("mouseenter", event => event.target.classList.add("filled")));
 }
 
-const squares = document.querySelectorAll(".square");
-// When each square is hovered over, the class filled is added to it, which changes the background color to black
-squares.forEach(square => square.addEventListener("mouseenter", event => event.target.classList.add("filled")));
+function changeGrid() {
+    let gridSize;
+
+    do {
+        gridSize = prompt("How many grids would you like (enter a number from 1 to 100)?");
+
+        // Allows the user to cancel without losing their current grid
+        if (gridSize === null) {
+            return;
+        }
+        
+        gridSize = Number(gridSize);
+    }
+    while (!(gridSize >= 1 && gridSize <= 100));
+
+    removeGrid();
+    createGrid(gridSize);
+}
+
+function removeGrid() {
+    const rows = document.querySelectorAll(".row");
+    rows.forEach(row => row.remove());
+}
