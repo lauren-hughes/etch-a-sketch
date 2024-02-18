@@ -18,10 +18,6 @@ h1 {
     margin: 20px;
 }
 
-.filled {
-    background-color: black;
-}
-
 .row {
     display: flex;
     flex: 1;
