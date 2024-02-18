@@ -1,12 +1,25 @@
+/* Google's Trochut font used for the heading */
+@import url('https://fonts.googleapis.com/css2?family=Trochut:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    background-color: red;
+    margin: 0;
+}
+
 button {
     margin-bottom: 15px;
 }
 
-.sketch-pad {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    height: 93vh;
+h1 {
+    color: gold;
+    font-family: Trochut, sans-serif;
+    font-size: 50px;
+    font-style: italic;
+    margin: 20px;
+}
+
+.filled {
+    background-color: black;
 }
 
 .row {
@@ -14,10 +27,21 @@ button {
     flex: 1;
 }
 
+.sketch-pad {
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+}
+
 .square {
     flex: 1;
 }
 
-.filled {
-    background-color: black;
+#container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
 }
